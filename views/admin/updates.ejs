@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+  <%- include('../includes/navigation.ejs') %>
+
+  <main>
+    <% if (updates.length > 0) { %>
+    <% for (let update of updates) { %>
+    <div class="card mt-3 ml-3 mr-3 mb-3">
+      <h5 class="card-header"><%= update.title %></h5>
+      <div class="card-body">
+        <h5 class="card-title">Expiry:<%= update.expiry %></h5>
+        <% let lev,link;
+          if (update.level == "uni") { lev = "University";}
+          if (update.level == "cse") { lev = "Computer Science";}
+          if (update.level == "eee") { lev = "Electrical and Electronics";}
+          if (update.level == "ece") { lev = "Electronics and Communication";}
+          if (update.level == "me") { lev = "Mechanical Engineering";}
+          if (update.level == "ce") { lev = "Civil Engineering";}
+          link = "/admin/edit-update/"+update.id+"?edit=true";
+         %>
+        <h5 >Level:<%= lev %></h5>
+        <p class="card-text"><%= update.description %></p>
+        <div class="btn-group">
+            <a href="<%= link %>" class="btn btn-warning">Edit</a>
+            <form action="/admin/delete-update" method="POST">
+              <input type="hidden" value="<%= update.id %>" name="updateId">
+              <button class="btn btn-danger ml-3" type="submit">Delete</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    <% } %>
+
+    <% } else { %>
+      <div class="container"></div>
+      <h1>No Updates Found!</h1>
+      <% } %>
+  </main>
+  
+
+<%- include('../includes/end.ejs') %>

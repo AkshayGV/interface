@@ -1,0 +1,69 @@
+<%- include('../includes/head.ejs') %>
+  <%- include('../includes/navigation.ejs') %>
+  <div class="container border border-dark rounded">
+      <form class="product-form mt-3" action="/admin/edit-update" method="POST">
+      <!-- title -->
+
+      <div class="form-group">
+          <label for="title">ID</label>
+          <input class="form-control" type="text" name="id" id="id" value="<% if (editing) { %><%= update.id %><% } %>" readonly >
+        </div>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" id="title" value="<% if (editing) { %><%= update.title %><% } %>">
+      </div>
+      <!-- description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea  class="form-control" name="description" id="description" rows="3"><% if (editing) { %><%= update.description %><% } %></textarea>
+      </div>
+      <!-- expiry -->
+      <div class="form-group">
+          <label for="expiry">Expiry</label>
+          <input type="date" class="form-control" name="expiry" id="expiry" value="<% if (editing) { %><%= update.expiry %><% } %>">
+      </div>
+      <!-- level -->
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="level"  value="uni" checked>
+        <label class="form-check-label" for="university">
+          University
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="level"  value="cse" >
+        <label class="form-check-label" for="cse">
+          Computer Science
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="level"  value="ece" >
+        <label class="form-check-label" for="ece">
+          Electronics and Communication
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="level"  value="eee" >
+        <label class="form-check-label" for="ece">
+          Electronics and Communication
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="level"  value="me" >
+        <label class="form-check-label" for="me">
+          Mechanical Engineering
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="level"  value="ce" >
+        <label class="form-check-label" for="ce">
+          Civil Engineering
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3 mb-3">Update</button>
+
+    </form>
+  </div>
+
+<%- include('../includes/end.ejs') %>
