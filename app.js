@@ -17,6 +17,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+var name ;
+var access;
 
 const users = require('./routes/users');
 
@@ -83,9 +85,14 @@ app.use(function(req, res, next){
 
 // Index Route
 app.get('/',ensureAuthenticated, (req, res) => {
-  const title = 'Welcome';
+  name = res.locals.user.name;
+  access = res.locals.user.access;
+  console.log(res.locals.user);
+  const title = 'Welcome'+" "+name;
   res.render('index', {
-    title: title
+    title: title,
+    name : name,
+    access : access
   });
 });
 

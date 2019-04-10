@@ -4,6 +4,9 @@
     <div class="container">
       <a href="/admin/add-update" class=" btn btn-primary btn-lg btn-block ">Add Updates</a>
       <a href="#" class=" btn btn-primary btn-lg btn-block ">View Complaints</a>
+      <% if(access == 'root'){ %>
+        <a href="/users/register" class="btn btn-primary btn-lg btn-block ">Create User</a>
+      <% } %>
     </div>
   </div>
 <%- include('./includes/end.ejs') %>

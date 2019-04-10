@@ -16,6 +16,12 @@ const UserSchema = new Schema({
     type : String,
     required : true
   },
+  access:{
+    type : String
+  },
+  access_level:{
+    type : String
+  },
   date:{
     type :Date,
     default :Date.now
