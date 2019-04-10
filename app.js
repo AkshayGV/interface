@@ -18,11 +18,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// const Update = require('./models/update');
-// const User = require('./models/user');
-
-
-
 const users = require('./routes/users');
 
 // Passport Config
@@ -98,8 +93,7 @@ app.get('/',ensureAuthenticated, (req, res) => {
 app.use('/users', users);
 app.use('/admin', adminRoutes);
 
-
-//put it at last
+//for unknown pages
 app.use(errorController.get404);
 
 const port = process.env.PORT || 5000;
@@ -109,10 +103,9 @@ sequelize
   .sync()
   .then(cart => {
     app.listen(port, () =>{
-      console.log(`Server started on port ${port}`);
+      // console.log(`Server started on port ${port}`);
     });
   })
   .catch(err => {
     console.log(err);
   });
-

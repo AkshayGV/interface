@@ -8,9 +8,6 @@
   },
   "author": "Akshay GV",
   "license": "MIT",
-  "devDependencies": {
-    "nodemon": "^1.18.10"
-  },
   "dependencies": {
     "bcrypt": "^3.0.5",
     "bcryptjs": "^2.4.3",

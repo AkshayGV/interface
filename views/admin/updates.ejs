@@ -9,12 +9,12 @@
       <div class="card-body">
         <h5 class="card-title">Expiry:<%= update.expiry %></h5>
         <% let lev,link;
-          if (update.level == "uni") { lev = "University";}
-          if (update.level == "cse") { lev = "Computer Science";}
-          if (update.level == "eee") { lev = "Electrical and Electronics";}
-          if (update.level == "ece") { lev = "Electronics and Communication";}
-          if (update.level == "me") { lev = "Mechanical Engineering";}
-          if (update.level == "ce") { lev = "Civil Engineering";}
+          if (update.level == "UNI") { lev = "University";}
+          if (update.level == "CSE") { lev = "Computer Science";}
+          if (update.level == "EEE") { lev = "Electrical and Electronics";}
+          if (update.level == "ECE") { lev = "Electronics and Communication";}
+          if (update.level == "ME") { lev = "Mechanical Engineering";}
+          if (update.level == "CE") { lev = "Civil Engineering";}
           link = "/admin/edit-update/"+update.id+"?edit=true";
          %>
         <h5 >Level:<%= lev %></h5>

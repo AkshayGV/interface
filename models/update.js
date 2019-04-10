@@ -2,7 +2,8 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
-const Update = sequelize.define('updates', {
+const Update = sequelize.define('latest_updates', 
+{
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -15,7 +16,8 @@ const Update = sequelize.define('updates', {
     allowNull: false
   },
   level:{
-    type: Sequelize.STRING(3),
+    type: Sequelize.ENUM,
+    values: ['UNI', 'CSE', 'ECE','EEE','ME','CE'],
     allowNull: false
   },
   expiry:{
