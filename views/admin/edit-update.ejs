@@ -11,17 +11,17 @@
 
       <div class="form-group">
         <label for="title">Title</label>
-        <input class="form-control" type="text" name="title" id="title" value="<% if (editing) { %><%= update.title %><% } %>">
+        <input class="form-control" type="text" name="title" id="title" value="<% if (editing) { %><%= update.title %><% } %>" required>
       </div>
       <!-- description -->
       <div class="form-group">
         <label for="description">Description</label>
-        <textarea  class="form-control" name="description" id="description" rows="3"><% if (editing) { %><%= update.description %><% } %></textarea>
+        <textarea  class="form-control" name="description" id="description" rows="3" required><% if (editing) { %><%= update.description %><% } %></textarea>
       </div>
       <!-- expiry -->
       <div class="form-group">
           <label for="expiry">Expiry</label>
-          <input type="date" class="form-control" name="expiry" id="expiry" value="<% if (editing) { %><%= update.expiry %><% } %>">
+          <input type="date" class="form-control" name="expiry" id="expiry" value="<% if (editing) { %><%= update.expiry %><% } %>" required>
       </div>
       <!-- level -->
       <div class="form-check">

@@ -6,18 +6,18 @@ const adminController = require('../controllers/admin');
 const router = express.Router();
 
 // /admin/add-update => GET
-router.get('/add-update', adminController.getAddUpdate);
+router.get('/add-update',ensureAuthenticated, adminController.getAddUpdate);
 
 // /admin/updates => GET
 router.get('/updates', ensureAuthenticated,adminController.getUpdates);
 
 // /admin/add-updates => POST
-router.post('/add-update', adminController.postAddUpdate);
+router.post('/add-update', ensureAuthenticated,adminController.postAddUpdate);
 
-router.get('/edit-update/:updateId', adminController.getEditUpdate);
+router.get('/edit-update/:updateId', ensureAuthenticated,adminController.getEditUpdate);
 
-router.post('/edit-update', adminController.postEditUpdate);
+router.post('/edit-update',ensureAuthenticated, adminController.postEditUpdate);
 
-router.post('/delete-update', adminController.postDeleteUpdate);
+router.post('/delete-update',ensureAuthenticated, adminController.postDeleteUpdate);
 
 module.exports = router;
