@@ -4,12 +4,12 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const router = express.Router();
 const {ensureAuthenticated} = require('../helpers/auth');
-
+const userData;
 // Load User Model
 require('../models/User');
 const User = mongoose.model('users');
 
-// User Login Route
+// Load Login page
 router.get('/login', (req, res) => {
   const title = 'Login';
   res.render('users/login', {
@@ -17,7 +17,7 @@ router.get('/login', (req, res) => {
   });
 });
 
-// User Register Route
+// Load Register page
 router.get('/register', ensureAuthenticated,(req, res) => {
   const title = 'Registration';
   res.render('users/register', {
@@ -26,7 +26,7 @@ router.get('/register', ensureAuthenticated,(req, res) => {
 });
 
 // Login Form POST
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {  
   passport.authenticate('local', {
     successRedirect:'/',
     failureRedirect: '/users/login',
