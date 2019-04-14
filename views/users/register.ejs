@@ -1,5 +1,6 @@
 <%- include('../includes/head.ejs') %>
 <%- include('../includes/msg.ejs') %>
+
 <div class="container mt-3 ">
     <div class="row ">
         <div class="col-md-6 mx-auto ">
@@ -23,7 +24,28 @@
                 <label for="password2">Confirm Password</label>
                 <input type="password" name="password2"  class="form-control" required>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+
+              <div class="form-group">
+                <label for="access">Access</label>
+                <select name="access" onchange="java_script_:show(this.options[this.selectedIndex].value)" required class="form-control">
+                  <option value='admin'>Admin</option>
+                  <option value='root'>Root</option>
+              </select>
+              </div>
+
+              <div id='hiddenDiv'>
+                <label>Select Branch</label>
+                <select name="access_level" required id="access_level" class="form-control">
+                    <option value="">Select Branch</option>
+                    <option value='CSE'>Computer Science</option>
+                    <option value='ECE'>Electronics and Communication</option>
+                    <option value='EEE'>Electrical and Electronics</option>
+                    <option value='CE'>Civil Engineering</option>
+                    <option value='ME'>Mecanical Engineering</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
           </div>
         </div>

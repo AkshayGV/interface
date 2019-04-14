@@ -17,10 +17,12 @@ const UserSchema = new Schema({
     required : true
   },
   access:{
-    type : String
+    type : String,
+    required : true
   },
   access_level:{
-    type : String
+    type : String,
+    default:'uni'
   },
   date:{
     type :Date,

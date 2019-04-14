@@ -65,7 +65,9 @@ router.post('/register', ensureAuthenticated,(req, res) => {
           const newUser = new User({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            access:req.body.access,
+            access_level:req.body.access_level
           });
           
           bcrypt.genSalt(10, (err, salt) => {
@@ -74,8 +76,8 @@ router.post('/register', ensureAuthenticated,(req, res) => {
               newUser.password = hash;
               newUser.save()
                 .then(user => {
-                  req.flash('success_msg', 'You are now registered and can log in');
-                  res.redirect('/users/login');
+                  req.flash('success_msg', 'Created A new user Successfully');
+                  res.redirect('/');
                 })
                 .catch(err => {
                   console.log(err);

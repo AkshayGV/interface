@@ -7,6 +7,20 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
             <link rel="stylesheet" href="/css/style.css">
             <title><%= title %></title>
+            <SCRIPT> 	
+                    function show(select_item) {
+                        if (select_item == "admin") {
+                        hiddenDiv.style.visibility='visible';
+                        hiddenDiv.style.display='block';
+                      } 
+                      else{
+                        var a = document.getElementById("access_level");
+                        hiddenDiv.style.visibility='hidden';
+                        hiddenDiv.style.display='none';
+                        a.setAttribute("name", "uni");
+                      }
+                    }	
+            </SCRIPT>
         </head>
         <body>
                 
