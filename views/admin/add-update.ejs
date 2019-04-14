@@ -8,52 +8,97 @@
         <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" required>
       </div>
       <!-- description -->
+      
       <div class="form-group">
-        <label for="description">Description</label>
-        <textarea  class="form-control" name="description" id="description" rows="3" required></textarea>
+          <label for="description">Description</label>
+          <textarea  class="form-control" name="description" id="description" rows="3" required></textarea>
       </div>
+      
       <!-- expiry -->
       <div class="form-group">
           <label for="expiry">Expiry</label>
           <input type="date" class="form-control" name="expiry" id="expiry" required>
         </div>
       <!-- level -->
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="UNI" checked>
-        <label class="form-check-label" for="university">
+      <% if(access_level == 'UNI'){ %>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="UNI" checked>
+          <label class="form-check-label" for="university">
           University
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="CSE" >
-        <label class="form-check-label" for="CSE">
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="CSE" >
+          <label class="form-check-label" for="CSE">
+            Computer Science
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="ECE" >
+          <label class="form-check-label" for="ECE">
+            Electronics and Communication
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="EEE" >
+          <label class="form-check-label" for="EEE">
+            Electronics and Communication
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="ME" >
+          <label class="form-check-label" for="me">
+            Mechanical Engineering
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="CE" >
+          <label class="form-check-label" for="ce">
+            Civil Engineering
+          </label>
+        </div>
+      <% } %>
+      <% if(access_level == 'CSE'){ %>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="CSE" checked>
+          <label class="form-check-label" for="CSE">
           Computer Science
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="ECE" >
-        <label class="form-check-label" for="ECE">
+          </label>
+        </div>
+      <% } %>
+      <% if(access_level == 'ECE'){ %>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="ECE" checked>
+          <label class="form-check-label" for="ECE">
           Electronics and Communication
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="EEE" >
-        <label class="form-check-label" for="EEE">
-          Electronics and Communication
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="ME" >
-        <label class="form-check-label" for="me">
-          Mechanical Engineering
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="CE" >
-        <label class="form-check-label" for="ce">
+          </label>
+        </div>
+      <% } %>
+      <% if(access_level == 'EEE'){ %>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="EEE" checked>
+          <label class="form-check-label" for="EEE">
+          Electrical and Electronics
+          </label>
+        </div>
+      <% } %>
+      <% if(access_level == 'CE'){ %>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="CE" checked>
+          <label class="form-check-label" for="CE">
           Civil Engineering
-        </label>
-      </div>
+          </label>
+        </div>
+      <% } %>
+      <% if(access_level == 'ME'){ %>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="ME" checked>
+          <label class="form-check-label" for="ME">
+          Mechanical Engineering
+          </label>
+        </div>
+      <% } %>
+      
 
       <button type="submit" class="btn btn-primary mt-3 mb-3">ADD</button>
 

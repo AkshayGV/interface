@@ -1,10 +1,12 @@
 const Update = require('../models/update');
 
 exports.getAddUpdate = (req, res, next) => {
+  var access_level = res.locals.user.access_level;
   res.render('admin/add-update', {
     title: 'Add Product',
     path: '/admin/add-product',
-    editing: false
+    editing: false,
+    access_level : access_level
   });
 };
 
