@@ -32,6 +32,7 @@ exports.postAddUpdate = (req, res, next) => {
 
 exports.getEditUpdate = (req, res, next) => {
   const editMode = req.query.edit;
+  var access_level = res.locals.user.access_level;
   if (!editMode) {
     return res.redirect('/');
   }
@@ -47,7 +48,8 @@ exports.getEditUpdate = (req, res, next) => {
       path: '/admin/edit-update',
       editing: editMode,
       update: update,
-      title : title
+      title : title,
+      access_level: access_level
     });
   })
   .catch(err => console.log(err));

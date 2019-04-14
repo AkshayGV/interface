@@ -7,7 +7,7 @@
       <div class="form-group">
           <label for="title">ID</label>
           <input class="form-control" type="text" name="id" id="id" value="<% if (editing) { %><%= update.id %><% } %>" readonly >
-        </div>
+      </div>
 
       <div class="form-group">
         <label for="title">Title</label>
@@ -24,42 +24,57 @@
           <input type="date" class="form-control" name="expiry" id="expiry" value="<% if (editing) { %><%= update.expiry %><% } %>" required>
       </div>
       <!-- level -->
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="UNI" checked>
-        <label class="form-check-label" for="university">
-          University
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="CSE" >
-        <label class="form-check-label" for="CSE">
-          Computer Science
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="ECE" >
-        <label class="form-check-label" for="ECE">
-          Electronics and Communication
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="EEE" >
-        <label class="form-check-label" for="EEE">
-          Electrical and Electronics
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="ME" >
-        <label class="form-check-label" for="ME">
-          Mechanical Engineering
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="level"  value="CE" >
-        <label class="form-check-label" for="CE">
-          Civil Engineering
-        </label>
-      </div>
+      <% if(access_level == 'UNI'){ %>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="UNI" checked>
+          <label class="form-check-label" for="university">
+            University
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="CSE" >
+          <label class="form-check-label" for="CSE">
+            Computer Science
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="ECE" >
+          <label class="form-check-label" for="ECE">
+            Electronics and Communication
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="EEE" >
+          <label class="form-check-label" for="EEE">
+            Electrical and Electronics
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="ME" >
+          <label class="form-check-label" for="ME">
+            Mechanical Engineering
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="level"  value="CE" >
+          <label class="form-check-label" for="CE">
+            Civil Engineering
+          </label>
+        </div>
+      <% } %>
+      <% let lev;
+          if (access_level == "CSE") { lev = "Computer Science";}
+          if (access_level == "EEE") { lev = "Electrical and Electronics";}
+          if (access_level == "ECE") { lev = "Electronics and Communication";}
+          if (access_level == "ME") { lev = "Mechanical Engineering";}
+          if (access_level == "CE") { lev = "Civil Engineering";}
+         %>
+      <% if(access_level != 'UNI'){ %>
+        <div class="form-check">
+          <label ><%= lev%></label>
+          <input class="form-control" type="text" name="level" id="level" value="<% if (editing) { %><%= update.level %><% } %>" hidden >
+        </div>
+      <% } %>
 
       <button type="submit" class="btn btn-primary mt-3 mb-3">Update</button>
 
