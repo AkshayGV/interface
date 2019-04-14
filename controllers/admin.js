@@ -78,7 +78,10 @@ exports.postEditUpdate = (req, res, next) => {
 };
 
 exports.getUpdates = (req, res, next) => {
-  Update.findAll()
+  var access = res.locals.user.access;
+  var access_level = res.locals.user.access_level;
+  if(access == "root"){
+    Update.findAll()
     .then(updates => {
       res.render('admin/updates', {
         updates: updates,
@@ -87,6 +90,20 @@ exports.getUpdates = (req, res, next) => {
       });
     })
     .catch(err => console.log(err));
+  }
+  Update.findAll({
+    where: {
+      level: access_level
+    }
+  })
+  .then(updates => {
+    res.render('admin/updates', {
+      updates: updates,
+      title: 'Admin Updates',
+      path: '/admin/updates'
+    });
+  })
+  .catch(err => console.log(err));
 };
 
 exports.postDeleteUpdate = (req, res, next) => {
