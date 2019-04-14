@@ -32,7 +32,7 @@ const db = require('./config/database');
 mongoose.connect(db.mongoURI, {
   useNewUrlParser: true
 })
-  .then(() => console.log('MongoDB Connected...'))
+  .then()
   .catch(err => console.log(err));
 
 //for upload 
