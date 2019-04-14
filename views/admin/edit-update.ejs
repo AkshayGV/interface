@@ -1,11 +1,12 @@
 <%- include('../includes/head.ejs') %>
   <%- include('../includes/navigation.ejs') %>
+  
   <div class="container border border-dark rounded">
       <form class="product-form mt-3" action="/admin/edit-update" method="POST">
       <!-- title -->
 
       <div class="form-group">
-          <label for="title">ID</label>
+          <label for="title">ID </label>
           <input class="form-control" type="text" name="id" id="id" value="<% if (editing) { %><%= update.id %><% } %>" readonly >
       </div>
 
@@ -24,39 +25,52 @@
           <input type="date" class="form-control" name="expiry" id="expiry" value="<% if (editing) { %><%= update.expiry %><% } %>" required>
       </div>
       <!-- level -->
+     
       <% if(access_level == 'UNI'){ %>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="level"  value="UNI" checked>
+          <input class="form-check-input" type="radio" name="level"  value="UNI" id="UNI" <% if (update.level =="UNI") { %>
+            checked
+          <% } %> >
           <label class="form-check-label" for="university">
             University
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="level"  value="CSE" >
+          <input class="form-check-input" type="radio" name="level"  value="CSE" id="CSE" <% if (update.level =="CSE") { %>
+            checked
+          <% } %>>
           <label class="form-check-label" for="CSE">
             Computer Science
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="level"  value="ECE" >
+          <input class="form-check-input" type="radio" name="level"  value="ECE" id="ECE" <% if (update.level =="ECE") { %>
+            checked
+          <% } %>>
           <label class="form-check-label" for="ECE">
             Electronics and Communication
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="level"  value="EEE" >
+          <input class="form-check-input" type="radio" name="level"  value="EEE" id="EEE" <% if (update.level =="EEE") { %>
+            checked
+          <% } %>>
           <label class="form-check-label" for="EEE">
             Electrical and Electronics
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="level"  value="ME" >
+          <input class="form-check-input" type="radio" name="level"  value="ME" id="ME"<% if (update.level =="ME") { %>
+            checked
+          <% } %>>
           <label class="form-check-label" for="ME">
             Mechanical Engineering
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="level"  value="CE" >
+          <input class="form-check-input" type="radio" name="level"  value="CE" id="CE" <% if (update.level =="CE") { %>
+            checked
+          <% } %>>
           <label class="form-check-label" for="CE">
             Civil Engineering
           </label>
