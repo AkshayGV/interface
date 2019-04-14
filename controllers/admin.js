@@ -90,20 +90,21 @@ exports.getUpdates = (req, res, next) => {
       });
     })
     .catch(err => console.log(err));
+  }else{
+    Update.findAll({
+      where: {
+        level: access_level
+      }
+    })
+    .then(updates => {
+      res.render('admin/updates', {
+        updates: updates,
+        title: 'Admin Updates',
+        path: '/admin/updates'
+      });
+    })
+    .catch(err => console.log(err));
   }
-  Update.findAll({
-    where: {
-      level: access_level
-    }
-  })
-  .then(updates => {
-    res.render('admin/updates', {
-      updates: updates,
-      title: 'Admin Updates',
-      path: '/admin/updates'
-    });
-  })
-  .catch(err => console.log(err));
 };
 
 exports.postDeleteUpdate = (req, res, next) => {

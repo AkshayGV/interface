@@ -87,7 +87,6 @@ app.use(function(req, res, next){
 app.get('/',ensureAuthenticated, (req, res) => {
   name = res.locals.user.name;
   access = res.locals.user.access;
-  console.log(res.locals.user);
   const title = 'Welcome'+" "+name;
   res.render('index', {
     title: title,
