@@ -3,8 +3,8 @@ const Update = require('../models/update');
 exports.getAddUpdate = (req, res, next) => {
   var access_level = res.locals.user.access_level;
   res.render('admin/add-update', {
-    title: 'Add Product',
-    path: '/admin/add-product',
+    title: 'Add Update',
+    path: '/admin/add-update',
     editing: false,
     access_level : access_level
   });
@@ -22,7 +22,6 @@ exports.postAddUpdate = (req, res, next) => {
     description: description
   })
   .then(result => {
-    console.log('Created Product');
     res.redirect('/admin/updates');
   })
   .catch(err => {
@@ -114,7 +113,6 @@ exports.postDeleteUpdate = (req, res, next) => {
       return update.destroy();
     })
     .then(result => {
-      console.log('DESTROYED Update');
       res.redirect('/admin/updates');
     })
     .catch(err => console.log(err));
