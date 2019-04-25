@@ -19,10 +19,17 @@ router.get('/login', (req, res) => {
 
 // Load Register page
 router.get('/register', ensureAuthenticated,(req, res) => {
-  const title = 'Registration';
-  res.render('users/register', {
-    title: title
-  });
+  // add logic to ensure the user is ROOT
+  var access = res.locals.user.access;
+  if(access == "root"){
+      const title = 'Registration';
+      res.render('users/register', {
+      title: title
+    });
+  }
+  else{
+    return res.redirect('/');
+  }
 });
 
 // Login Form POST
