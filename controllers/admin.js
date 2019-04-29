@@ -228,6 +228,7 @@ exports.postResolveComplaint = (req,res,next) => {
   const complaintId = req.body.complaintId;
   const branch = req.body.branch;
   const comments = req.body.comments;
+  const email = req.body.email;
   var redirect = '/admin/complaints/'+String(branch);
   var html = '<h2>'+comments+'</h2>';
   var sql = 'UPDATE '+String(branch)+'_complaints set status = "Resolved" WHERE id='+complaintId;
@@ -235,7 +236,7 @@ exports.postResolveComplaint = (req,res,next) => {
   .then(result=>{
     res.redirect(redirect);
     return transporter.sendMail({
-      to:'akshaygv3@gmail.com',
+      to:email,
       from:'webmaster@college.edu.in',
       subject:'Issue resolved',
       html:html

@@ -16,7 +16,8 @@
               <form action="/admin/resolve-complaint" method="POST">
                 <input type="hidden" value="<%= row.id %>" name="complaintId">
                 <input type="hidden" value="<%= branch %>" name="branch">
-                <textarea  class="form-control" name="comments" rows="1" required></textarea>
+                <input type="email" class="form-control mt-2 mb-2" name="email" required placeholder="Email ID please">
+                <textarea  class="form-control mt-2" name="comments" rows="1" required></textarea>
                 <button class="btn btn-danger ml-3 mt-3" type="submit">Resolve</button>
               </form>
             </div>
