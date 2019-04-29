@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+  <%- include('../includes/navigation.ejs') %>
+  <%- include('../includes/msg.ejs') %>
+
+  <main>
+    <div class="jumbotron jumbotron-fluid mt-1 ml-1 mr-1 mb-1 round">
+      <div class="container">
+        <!-- CSE -->
+        <% if(access == 'UNI' || access == 'CSE'){ %>
+          <a href="/admin/complaints/cse" class="btn btn-primary btn-lg btn-block ">Computer Science Complaints</a>
+        <% } %>
+        <!-- ECE -->
+        <% if(access == 'UNI' || access == 'ECE'){ %>
+          <a href="/admin/complaints/ece" class="btn btn-primary btn-lg btn-block ">Electronics and communication Complaints</a>
+        <% } %>
+        <!-- EEE -->
+        <% if(access == 'UNI' || access == 'EEE'){ %>
+          <a href="/admin/complaints/eee" class="btn btn-primary btn-lg btn-block ">Electrical and electronics Complaints</a>
+        <% } %>
+        <!-- Civil -->
+        <% if(access == 'UNI' || access == 'CE'){ %>
+          <a href="/admin/complaints/ce" class="btn btn-primary btn-lg btn-block ">Civil Complaints</a>
+        <% } %>
+        <% if(access == 'UNI' || access == 'ME'){ %>
+          <a href="/admin/complaints/me" class="btn btn-primary btn-lg btn-block ">Mechanical Complaints</a>
+        <% } %>
+      </div>
+    </div>
+  </main>
+
+<%- include('../includes/end.ejs') %>

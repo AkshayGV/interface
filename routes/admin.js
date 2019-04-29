@@ -20,4 +20,19 @@ router.post('/edit-update',ensureAuthenticated, adminController.postEditUpdate);
 
 router.post('/delete-update',ensureAuthenticated, adminController.postDeleteUpdate);
 
+router.get('/complaints',ensureAuthenticated,adminController.getComplaints);
+
+// cse complaints
+router.get('/complaints/cse',ensureAuthenticated,adminController.getComplaintsCse);
+// ece complaints
+router.get('/complaints/ece',ensureAuthenticated,adminController.getComplaintsEce);
+// eee complaints
+router.get('/complaints/eee',ensureAuthenticated,adminController.getComplaintsEee);
+//civil
+router.get('/complaints/ce',ensureAuthenticated,adminController.getComplaintsCe);
+// mech
+router.get('/complaints/me',ensureAuthenticated,adminController.getComplaintsMe);
+//resolve complaint
+router.post('/resolve-complaint',adminController.postResolveComplaint);
+
 module.exports = router;

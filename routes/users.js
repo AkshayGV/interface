@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const router = express.Router();
 const {ensureAuthenticated} = require('../helpers/auth');
+const db = require('../util/db');
 
 // Load User Model
 require('../models/User');
@@ -99,6 +100,7 @@ router.post('/register', ensureAuthenticated,(req, res) => {
 
 //Logout get method
 router.get('/logout',(req,res)=>{
+  // db.end();
   req.logOut();
   req.flash('success_msg',"Successfully logged out!");
   res.redirect('/users/login');

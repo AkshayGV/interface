@@ -24,6 +24,7 @@ const users = require('./routes/users');
 
 // Passport Config
 require('./config/passport')(passport);
+
 //DB config
 const db = require('./config/database');
 

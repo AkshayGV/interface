@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+  <%- include('../includes/navigation.ejs') %>
+  <%- include('../includes/msg.ejs') %>
+
+  <main>
+    <% if (rows.length > 0) { %>
+      <% for (let row of rows) { %>
+        <% let srn = row.srn;
+            srn = srn.toUpperCase();
+            let link = "/resolve-complaint/"+row.branch;
+        %>
+        <div class="card mt-2 mb-2 ml-2 mr-2">
+            <div class="card-body">
+              <h5 class="mb-3"><%=srn%></h5>
+              <h3 class="mb-3"><%=row.complaint%></h3>
+              <form action="/admin/resolve-complaint" method="POST">
+                <input type="hidden" value="<%= row.id %>" name="complaintId">
+                <input type="hidden" value="<%= branch %>" name="branch">
+                <textarea  class="form-control" name="comments" rows="1" required></textarea>
+                <button class="btn btn-danger ml-3 mt-3" type="submit">Resolve</button>
+              </form>
+            </div>
+          </div>
+        
+      <% } %>
+  
+      <% } else { %>
+        <div class="container"></div>
+        <h1>No Complaints Found!</h1>
+        <% } %>
+  </main>
+<%- include('../includes/end.ejs') %>
+
+
+    
