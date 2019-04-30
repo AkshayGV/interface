@@ -229,16 +229,19 @@ exports.postResolveComplaint = (req,res,next) => {
   const branch = req.body.branch;
   const comments = req.body.comments;
   const email = req.body.email;
-  var redirect = '/admin/complaints/'+String(branch);
-  var html = '<h2>'+comments+'</h2>';
-  var sql = 'UPDATE '+String(branch)+'_complaints set status = "Resolved" WHERE id='+complaintId;
+  const sender = res.locals.user.name;
+  const senderEmail = res.locals.user.email;
+  const redirect = '/admin/complaints/'+String(branch);
+  const subject  = 'Issue resolved by '+sender;
+  const html = '<h2>'+comments+'</h2></br></br><h3>Contact email: '+senderEmail+'</h3>';
+  const sql = 'UPDATE '+String(branch)+'_complaints set status = "Resolved" WHERE id='+complaintId;
   db.execute(sql)
   .then(result=>{
     res.redirect(redirect);
     return transporter.sendMail({
       to:email,
       from:'webmaster@college.edu.in',
-      subject:'Issue resolved',
+      subject: subject,
       html:html
     }).catch(err=> console.log(err));
   })
